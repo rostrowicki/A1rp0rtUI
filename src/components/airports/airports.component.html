@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h3>AIRPORTS</h3>
+    </div>
+    <div class="col-lg-12">
+        <p-dropdown class="ui-inputgroup" [options]="countries" [(ngModel)]="selectedCountry" placeholder="Select a Country" (ngModelChange)="selectCountry($event)"
+            optionLabel="code" [showClear]="false"></p-dropdown>
+    </div>
+    <div class="col-lg-12">
+        <p-progressBar *ngIf="!airportList" mode="indeterminate" [style]="{'height':'6px'}"></p-progressBar>
+        <p-table [value]="airportList" #dt [rows]="15" [paginator]="true" sortField="Name">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>IATA</th>
+                    <th>Continent</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-row>
+                <tr>
+                    <th>{{row.name}}</th>
+                    <th>{{row.iata}}</th>
+                    <th>{{row.continent}}</th>
+                    <th>{{row.status}}</th>
+                    <th>{{row.type}}</th>
+                    <th>{{row.size}}</th>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
