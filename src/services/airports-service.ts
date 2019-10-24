@@ -9,8 +9,17 @@ export class AirportService {
 
     }
 
+    addAirport(airport: Airport): Observable<any> {
+        const url = 'https://localhost:5001/api/airports/';
+        const options = this.getHttpOptions(true);
+        const Result$ = this._httpClient
+            .put<Airport>(url, JSON.stringify(airport), options)
+            .catch(this.handleError);
+        return Result$;
+    }
+
     updateAirport(airport: Airport): Observable<any> {
-        const url = 'https://localhost:44335/api/airports/';
+        const url = 'https://localhost:5001/api/airports/';
         const options = this.getHttpOptions(true);
         const Result$ = this._httpClient
             .post<Airport>(url, JSON.stringify(airport), options)
@@ -19,7 +28,7 @@ export class AirportService {
     }
 
     loadAirportListByIso(iso: string): Observable<any[]> {
-        const url = 'https://localhost:44335/api/airports/' + iso;
+        const url = 'https://localhost:5001/api/airports/' + iso;
         const options = this.getHttpOptions();
         const Result$ = this._httpClient
             .get<Airport[]>(url, options)
@@ -28,7 +37,7 @@ export class AirportService {
     }
 
     refreshAirportList(): Observable<any> {
-        const url = 'https://localhost:44335/api/airports/refresh';
+        const url = 'https://localhost:5001/api/airports/refresh';
         const options = this.getHttpOptions();
         const Result$ = this._httpClient
             .get<number>(url, options)

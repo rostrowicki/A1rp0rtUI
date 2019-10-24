@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-lg-12">
+        <button pButton action="action" (click)="onBack()" label="< Back" id="SaveBtn"></button>
+    </div>
+    <div class="col-lg-12">
+        <h3>NEW</h3>
+    </div>
+    <div class="col-lg-12">
+        <h3>Name</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Name">
+
+        <h3>Country (ISO code)</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Iata">
+
+        <h3>Continent</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Continent">
+
+        <h3>Status</h3>
+        <p-dropdown class="ui-inputgroup" [options]="statusDropdownValues" [(ngModel)]="airport.Status"
+            placeholder="Choose value..."></p-dropdown>
+
+        <h3>Type</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Type">
+
+        <h3>Size</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Size">
+
+        <h3>Lon</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Lon">
+
+        <h3>Lat</h3>
+        <input pInputText id="float-input" type="text" size="30" [(ngModel)]="airport.Lat">
+    </div>
+    <div>&nbsp;</div>
+    <div class="col-lg-12">
+        <button pButton action="action" (click)="onSave()" label="Save" id="SaveBtn"></button>
+    </div>
+</div>

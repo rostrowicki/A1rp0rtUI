@@ -3,8 +3,12 @@
         <h3>AIRPORTS</h3>
     </div>
     <div class="col-lg-12">
-        <p-dropdown class="ui-inputgroup" [options]="countries" [(ngModel)]="selectedCountry" placeholder="Select a Country" (ngModelChange)="selectCountry($event)"
-            optionLabel="code" [showClear]="false"></p-dropdown>
+        <button pButton action="action" (click)="onNew()" label="New" id="SaveBtn"></button>
+    </div>
+    <div class="col-lg-12">
+        <p-dropdown class="ui-inputgroup" [options]="countries" [(ngModel)]="selectedCountry"
+            placeholder="Select a Country" (ngModelChange)="selectCountry($event)" optionLabel="code"
+            [showClear]="false"></p-dropdown>
     </div>
     <div class="col-lg-12">
         <p-progressBar *ngIf="!airportList" mode="indeterminate" [style]="{'height':'6px'}"></p-progressBar>
