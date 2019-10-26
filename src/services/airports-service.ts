@@ -5,12 +5,15 @@ import { Airport } from './../shared/entities/Airport';
 
 @Injectable()
 export class AirportService {
+
+    serviceUrl = 'https://localhost:44335/api/';
+
     constructor(private _httpClient: HttpClient) {
 
     }
 
     addAirport(airport: Airport): Observable<any> {
-        const url = 'https://localhost:5001/api/airports/';
+        const url = this.serviceUrl + 'airports/';
         const options = this.getHttpOptions(true);
         const Result$ = this._httpClient
             .put<Airport>(url, JSON.stringify(airport), options)
@@ -19,7 +22,7 @@ export class AirportService {
     }
 
     updateAirport(airport: Airport): Observable<any> {
-        const url = 'https://localhost:5001/api/airports/';
+        const url = this.serviceUrl + 'airports';
         const options = this.getHttpOptions(true);
         const Result$ = this._httpClient
             .post<Airport>(url, JSON.stringify(airport), options)
@@ -28,7 +31,7 @@ export class AirportService {
     }
 
     loadAirportListByIso(iso: string): Observable<any[]> {
-        const url = 'https://localhost:5001/api/airports/' + iso;
+        const url = this.serviceUrl + 'airports/' + iso;
         const options = this.getHttpOptions();
         const Result$ = this._httpClient
             .get<Airport[]>(url, options)
@@ -37,7 +40,7 @@ export class AirportService {
     }
 
     refreshAirportList(): Observable<any> {
-        const url = 'https://localhost:5001/api/airports/refresh';
+        const url = this.serviceUrl + 'api/airports/refresh';
         const options = this.getHttpOptions();
         const Result$ = this._httpClient
             .get<number>(url, options)

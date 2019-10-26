@@ -19,7 +19,6 @@
                     <th>IATA</th>
                     <th>Continent</th>
                     <th>Status</th>
-                    <th>Type</th>
                     <th>Size</th>
                 </tr>
             </ng-template>
@@ -28,8 +27,7 @@
                     <th>{{row.name}}</th>
                     <th>{{row.iata}}</th>
                     <th>{{row.continent}}</th>
-                    <th>{{row.status}}</th>
-                    <th>{{row.type}}</th>
+                    <th>{{row.status === 1 ? 'Active':'Inactive'}}</th>
                     <th>{{row.size}}</th>
                 </tr>
             </ng-template>

@@ -21,8 +21,8 @@ export class AirportsEditComponent implements OnInit {
 
     ngOnInit(): void {
         this.statusDropdownValues = [
-            {label: '0', value: '0'},
-            {label: '1', value: '1'}
+            {label: 'Inactive', value: '0'},
+            {label: 'Active', value: '1'}
         ]
     }
 
@@ -32,11 +32,11 @@ export class AirportsEditComponent implements OnInit {
 
     onSave() {
         if (this.isValid(this.airport)) {
-            if (this.airport.AirportId) {
+            if (!this.airport.AirportId) {
                 this.airportService.addAirport(this.airport).subscribe(data => {
                     console.log('Record has been added to the database.');
                     // redirect to the list
-                    this.router.navigateByUrl('/home/' + this.airport.Iata);
+                    this.router.navigateByUrl('/home/' + this.airport.Iso);
                 },
                     error => {
                         // TODO display message in UI
